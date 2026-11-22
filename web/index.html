@@ -324,7 +324,7 @@ function openForm({kind="addition", name=""}={}){
 }
 $("suggestBtn").onclick=()=>openForm();
 const ghNew = q => `https://github.com/${SITE.github.repo}/issues/new?template=suggestion.yml&title=${encodeURIComponent(q||"")}`;
-if(!API){ $("contactBtn").hidden=true; }
+if(!API || !SITE.api.contact){ $("contactBtn").hidden=true; }
 if(SITE.hub && SITE.hub.url && !/example\.org/.test(SITE.hub.url)) $("hubline").innerHTML=`Part of <a href="${SITE.hub.url}">${esc(SITE.hub.name)}</a>. Make one for your neighborhood.`;
 if(SITE.credit) $("hubline").innerHTML += (($("hubline").innerHTML?" ":"")+esc(SITE.credit));
 $("cancel").onclick=()=>dlg.close();

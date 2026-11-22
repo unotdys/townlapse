@@ -114,8 +114,9 @@
     "maxNativeZoom": 19
   },
   "api": {
-    "_note": "URL of your Cloudflare Worker (see worker/README). Leave empty to send visitors to GitHub issues instead.",
-    "url": "https://neighborhood-map.unotdys.workers.dev"
+    "_note": "URL of your Cloudflare Worker (see worker/README). Leave empty to send visitors to GitHub issues instead. Set contact to true once the Worker's email (Cloudflare Email Routing) is configured.",
+    "url": "https://neighborhood-map.unotdys.workers.dev",
+    "contact": false
   },
   "github": {
     "repo": "unotdys/neighborhood-timeline-map"

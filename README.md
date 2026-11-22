@@ -53,7 +53,7 @@ Lets anyone suggest without a GitHub account, adds **Contact us** (emails you; y
 1. Create a free Cloudflare account. In `worker/wrangler.toml` set `GITHUB_REPO`, `ALLOWED_ORIGINS` (your Pages URL) and `SITE_NAME`.
 2. Create a GitHub **fine-grained token** limited to this repo with **Issues: Read and write**. Then:
    `cd worker && npx wrangler secret put GITHUB_TOKEN && npx wrangler deploy`
-3. Put the Worker's URL in `config.json` → `api.url`.
+3. Put the Worker's URL in `config.json` → `api.url`. (Set `api.contact` to `true` once email is set up in step 4.)
 4. *Contact form:* needs a domain on Cloudflare with **Email Routing** on and your address verified as a destination; then fill
    `FROM_ADDRESS` / `TO_ADDRESS` and uncomment the `send_email` block.
 5. *Rate limiting:* create a KV namespace and uncomment the `RATE` block.

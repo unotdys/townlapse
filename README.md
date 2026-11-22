@@ -1,11 +1,11 @@
-# Neighborhood Timeline Map
+# Townlapse
 
-A satellite map of a neighborhood with a timeline slider from 1900 to today: drag it and see which shops,
+Watch your town change, one storefront at a time. A satellite map of a neighborhood with a timeline slider from 1900 to today: drag it and see which shops,
 restaurants, theaters and offices stood on each block in any year. Neighbors suggest places they remember,
 an AI checks each suggestion against old newspapers and the web, and accepted ones appear on the map within minutes.
 
-**Live example:** Downtown Palo Alto, https://unotdys.com/downtownpaloalto/ (and this repo's own build: https://unotdys.github.io/neighborhood-timeline-map/)
-**Part of:** HUB_NAME_PLACEHOLDER, a directory of neighborhood maps (coming soon)
+**Live example:** Downtown Palo Alto, https://townlapse.org/downtownpaloalto/ (and this repo's own build: https://unotdys.github.io/townlapse/)
+**Home:** [townlapse.org](https://townlapse.org), with the list of towns and how to contribute
 
 Everything runs on free services: **GitHub Pages** (the map), **GitHub Actions** (builds, AI review, weekly refresh),
 **GitHub Issues** (the suggestion queue), and optionally a **Cloudflare Worker** (forms without a GitHub account,

@@ -119,11 +119,11 @@
     "contact": false
   },
   "github": {
-    "repo": "unotdys/neighborhood-timeline-map"
+    "repo": "unotdys/townlapse"
   },
   "hub": {
-    "name": "HUB_NAME_PLACEHOLDER",
-    "url": "https://example.org/"
+    "name": "Townlapse",
+    "url": "https://townlapse.org/"
   },
   "credit": ""
 }

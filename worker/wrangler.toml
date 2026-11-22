@@ -7,9 +7,9 @@ main = "src/index.js"
 compatibility_date = "2026-11-01"
 
 [vars]
-GITHUB_REPO = "unotdys/neighborhood-timeline-map"
+GITHUB_REPO = "unotdys/townlapse"
 ALLOWED_ORIGINS = "https://unotdys.github.io"
-SITE_NAME = "Neighborhood Timeline Map demo"
+SITE_NAME = "Townlapse demo"
 # Contact form (optional). Needs Cloudflare Email Routing on a domain you own, with TO_ADDRESS verified as a destination.
 FROM_ADDRESS = "map@your-domain.example"
 TO_ADDRESS = "you@example.com"

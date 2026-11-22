@@ -115,7 +115,7 @@
   },
   "api": {
     "_note": "URL of your Cloudflare Worker (see worker/README). Leave empty to send visitors to GitHub issues instead.",
-    "url": ""
+    "url": "https://neighborhood-map.unotdys.workers.dev"
   },
   "github": {
     "repo": "unotdys/neighborhood-timeline-map"

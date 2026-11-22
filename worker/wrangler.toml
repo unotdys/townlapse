@@ -9,7 +9,7 @@ compatibility_date = "2026-11-01"
 [vars]
 GITHUB_REPO = "unotdys/neighborhood-timeline-map"
 ALLOWED_ORIGINS = "https://unotdys.github.io"
-SITE_NAME = "Neighborhood map"
+SITE_NAME = "Neighborhood Timeline Map demo"
 # Contact form (optional). Needs Cloudflare Email Routing on a domain you own, with TO_ADDRESS verified as a destination.
 FROM_ADDRESS = "map@your-domain.example"
 TO_ADDRESS = "you@example.com"
@@ -20,6 +20,6 @@ TO_ADDRESS = "you@example.com"
 # destination_address = "you@example.com"
 
 # Optional rate limiting: npx wrangler kv namespace create RATE, then paste its id here
-# [[kv_namespaces]]
-# binding = "RATE"
-# id = "..."
+[[kv_namespaces]]
+binding = "RATE"
+id = "9f0fcc0a7b2c4f7ba6ed6a97b2d41213"

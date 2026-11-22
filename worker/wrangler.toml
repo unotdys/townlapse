@@ -1,0 +1,25 @@
+# Cloudflare Worker for the map's forms and the optional Muse connector.
+# Deploy:  cd worker && npx wrangler deploy
+# Secrets: npx wrangler secret put GITHUB_TOKEN   (fine-grained token: this repo only, Issues = Read and write)
+#          npx wrangler secret put MUSE_KEY       (optional, any long random string; paste the same into Muse)
+name = "neighborhood-map"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+GITHUB_REPO = "OWNER/REPO"
+ALLOWED_ORIGINS = "https://OWNER.github.io"
+SITE_NAME = "Neighborhood map"
+# Contact form (optional). Needs Cloudflare Email Routing on a domain you own, with TO_ADDRESS verified as a destination.
+FROM_ADDRESS = "map@your-domain.example"
+TO_ADDRESS = "you@example.com"
+
+# Uncomment after enabling Email Routing (Contact us form):
+# [[send_email]]
+# name = "SEND_EMAIL"
+# destination_address = "you@example.com"
+
+# Optional rate limiting: npx wrangler kv namespace create RATE, then paste its id here
+# [[kv_namespaces]]
+# binding = "RATE"
+# id = "..."

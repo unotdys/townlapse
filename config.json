@@ -1,0 +1,128 @@
+{
+  "_readme": "Edit this file for your neighborhood. See README.md, section 'Make it yours'.",
+  "title": "Downtown Palo Alto",
+  "description": "Slide through time to see which stores, theaters and offices stood in downtown Palo Alto from 1900 to today.",
+  "startYear": 1900,
+  "geocodeSuffix": "Palo Alto, CA 94301",
+  "area": {
+    "_note": "Places from OpenStreetMap are kept only inside this polygon ([lat, lng] points).",
+    "polygon": [
+      [
+        37.440401,
+        -122.161017
+      ],
+      [
+        37.448597,
+        -122.152886
+      ],
+      [
+        37.452432,
+        -122.15902
+      ],
+      [
+        37.444236,
+        -122.16715
+      ]
+    ]
+  },
+  "map": {
+    "_note": "bearing = compass direction (degrees) that should point UP on screen. bottom/top = two points the opening view fits between.",
+    "bearing": 38.2,
+    "bottom": {
+      "name": "El Camino Real",
+      "point": [
+        37.44226,
+        -122.16522
+      ]
+    },
+    "top": {
+      "name": "Middlefield Rd",
+      "point": [
+        37.45075,
+        -122.15684
+      ]
+    },
+    "mainStreet": {
+      "name": "University Ave",
+      "point": [
+        37.4462,
+        -122.16132
+      ]
+    },
+    "streetLabels": [
+      [
+        "Alma St",
+        37.4433,
+        -122.16419
+      ],
+      [
+        "High St",
+        37.44409,
+        -122.16342
+      ],
+      [
+        "Emerson St",
+        37.4447,
+        -122.16282
+      ],
+      [
+        "Ramona St",
+        37.44531,
+        -122.16222
+      ],
+      [
+        "Bryant St",
+        37.44591,
+        -122.16163
+      ],
+      [
+        "Waverley St",
+        37.44712,
+        -122.16041
+      ],
+      [
+        "Kipling St",
+        37.44771,
+        -122.15983
+      ],
+      [
+        "Cowper St",
+        37.44831,
+        -122.15923
+      ],
+      [
+        "Tasso St",
+        37.44892,
+        -122.15862
+      ],
+      [
+        "Webster St",
+        37.44952,
+        -122.15802
+      ],
+      [
+        "Byron St",
+        37.45012,
+        -122.15742
+      ]
+    ]
+  },
+  "imagery": {
+    "_note": "Satellite/aerial tiles. Check the provider's terms for your use; swap in another XYZ tile URL if needed.",
+    "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+    "attribution": "Imagery &copy; Esri, Maxar, Earthstar Geographics",
+    "maxNativeZoom": 19
+  },
+  "api": {
+    "_note": "URL of your Cloudflare Worker (see worker/README). Leave empty to send visitors to GitHub issues instead.",
+    "url": ""
+  },
+  "github": {
+    "repo": "OWNER/REPO"
+  },
+  "hub": {
+    "name": "HUB_NAME_PLACEHOLDER",
+    "url": "https://example.org/"
+  },
+  "credit": ""
+}

@@ -1,0 +1,46 @@
+name: Review a suggestion
+# Runs when a suggestion issue is opened (by the form on the map or on GitHub),
+# when Muse reports Facebook findings (label "muse-reported"), or when a maintainer adds "approved".
+on:
+  issues:
+    types: [opened, labeled]
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+concurrency:
+  group: map-data
+  cancel-in-progress: false
+jobs:
+  review:
+    if: >-
+      (github.event.action == 'opened' && contains(github.event.issue.labels.*.name, 'suggestion')) ||
+      (github.event.action == 'labeled' && (github.event.label.name == 'muse-reported' || github.event.label.name == 'approved'))
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.review.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - id: review
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_MODEL: ${{ vars.ANTHROPIC_MODEL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          REVIEW_PROVIDER: ${{ vars.REVIEW_PROVIDER }}
+          MODE: ${{ github.event.label.name == 'approved' && 'approve' || 'review' }}
+        run: python scripts/review.py
+      - if: steps.review.outputs.changed == 'true'
+        run: |
+          python scripts/build.py
+          git config user.name "map-bot"; git config user.email "map-bot@users.noreply.github.com"
+          git add data/suggestions_applied.json data/geocache.json
+          git commit -m "Suggestion #${{ github.event.issue.number }}: ${{ github.event.issue.title }}" && git pull --rebase && git push
+  deploy:
+    needs: review
+    if: needs.review.outputs.changed == 'true'
+    uses: ./.github/workflows/deploy.yml

@@ -1,0 +1,29 @@
+name: Suggest a place
+description: Add a shop, restaurant, theater or other place that's missing, or fix one that's wrong.
+title: "Add: "
+labels: ["suggestion"]
+body:
+  - type: dropdown
+    attributes:
+      label: What kind of suggestion?
+      options: ["Add a missing place", "Fix a place on the map"]
+    validations: {required: true}
+  - type: input
+    attributes: {label: "If fixing an existing place, its name on the map"}
+  - type: input
+    attributes: {label: "Name of the place"}
+    validations: {required: true}
+  - type: input
+    attributes: {label: "Address or nearest corner", placeholder: "123 Main St, or Main & 1st"}
+  - type: input
+    attributes: {label: "Year it opened", placeholder: "1952 (a guess is fine)"}
+  - type: input
+    attributes: {label: "Year it closed", description: "Leave blank if it's still open"}
+  - type: dropdown
+    attributes:
+      label: Kind of place
+      options: ["Shop", "Food & drink", "Theater or venue", "Startup or office", "Hotel", "Landmark", "Services", "Fitness", "Other"]
+  - type: textarea
+    attributes: {label: "What do you remember?"}
+  - type: input
+    attributes: {label: "Source", description: "A link, a photo, or 'I worked there'"}

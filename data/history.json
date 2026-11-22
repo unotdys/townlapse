@@ -1,0 +1,426 @@
+[
+ {
+  "name": "Palo Alto Furniture Co.",
+  "address": "300 University Ave",
+  "start": 1900,
+  "end": 1923,
+  "category": "retail",
+  "approx": true,
+  "note": "First big tenant of the corner building at University & Bryant, which opened in 1900."
+ },
+ {
+  "name": "J.C. Penney",
+  "address": "300 University Ave",
+  "start": 1924,
+  "end": 1972,
+  "category": "retail",
+  "approx": true,
+  "note": "Penney's opened here in 1924 and was run for two decades by Merrill Vanderpool."
+ },
+ {
+  "name": "Walgreens (and Subway)",
+  "address": "300 University Ave",
+  "start": 1973,
+  "end": 2007,
+  "category": "retail",
+  "approx": false,
+  "note": "Walgreens from 1973; the 1900 building burned in an arson fire in July 2007 and was demolished."
+ },
+ {
+  "name": "Varsity Theatre (original)",
+  "address": "263 University Ave",
+  "start": 1912,
+  "end": 1927,
+  "category": "entertainment",
+  "approx": false,
+  "note": "Palo Alto's first Varsity, opened March 1912, showing stage shows and films."
+ },
+ {
+  "name": "Stanford Theatre",
+  "address": "221 University Ave",
+  "start": 1925,
+  "end": null,
+  "category": "entertainment",
+  "approx": false,
+  "note": "Opened June 9, 1925. Restored by the Packard family (1987-89); still shows classic films."
+ },
+ {
+  "name": "Varsity Theatre",
+  "address": "456 University Ave",
+  "start": 1927,
+  "end": 1994,
+  "category": "entertainment",
+  "approx": false,
+  "note": "Reid Brothers movie palace. Revival house and music venue in the 1970s."
+ },
+ {
+  "name": "Borders Books",
+  "address": "456 University Ave",
+  "start": 1995,
+  "end": 2011,
+  "category": "retail",
+  "approx": true,
+  "note": "Bookstore in the converted Varsity Theatre; closed when Borders liquidated in 2011."
+ },
+ {
+  "name": "HanaHaus & Blue Bottle Coffee",
+  "address": "456 University Ave",
+  "start": 2015,
+  "end": 2024,
+  "category": "food",
+  "approx": false,
+  "note": "Co-working cafe in the old Varsity; closure announced Sept 2024."
+ },
+ {
+  "name": "Liddicoat's Market",
+  "address": "340 University Ave",
+  "start": 1924,
+  "end": 1977,
+  "category": "food",
+  "approx": true,
+  "note": "Grocery and lunch market; building dates to 1923-24."
+ },
+ {
+  "name": "Z Gallerie",
+  "address": "340 University Ave",
+  "start": 1980,
+  "end": 2010,
+  "category": "retail",
+  "approx": true,
+  "note": "Home furnishings store in the old Liddicoat's building."
+ },
+ {
+  "name": "Apple Store (current)",
+  "address": "340 University Ave",
+  "start": 2012,
+  "end": null,
+  "category": "retail",
+  "approx": false,
+  "note": "Opened Oct 27, 2012 as a prototype glass-front store."
+ },
+ {
+  "name": "Swain's Music",
+  "address": "451 University Ave",
+  "start": 1950,
+  "end": 2000,
+  "category": "retail",
+  "approx": true,
+  "note": "Music store; locals say Jerry Garcia rented instruments here."
+ },
+ {
+  "name": "Apple Store (first)",
+  "address": "451 University Ave",
+  "start": 2001,
+  "end": 2012,
+  "category": "retail",
+  "approx": false,
+  "note": "Opened Oct 2001, one of Apple's first stores and Steve Jobs's local store."
+ },
+ {
+  "name": "Shoe Palace",
+  "address": "451 University Ave",
+  "start": 2013,
+  "end": null,
+  "category": "retail",
+  "approx": true,
+  "note": "Took over the original Apple Store space."
+ },
+ {
+  "name": "Chimaera Books & Music",
+  "address": "165 University Ave",
+  "start": 1980,
+  "end": 2000,
+  "category": "retail",
+  "approx": true,
+  "note": "Ground-floor bookstore in the 'lucky building' until 2000."
+ },
+ {
+  "name": "Google (first office)",
+  "address": "165 University Ave",
+  "start": 1999,
+  "end": 1999,
+  "category": "tech",
+  "approx": false,
+  "note": "Google's first real office, 1999, after Logitech. Later tenants: PayPal, Danger, Milo."
+ },
+ {
+  "name": "PayPal",
+  "address": "165 University Ave",
+  "start": 1999,
+  "end": 2000,
+  "category": "tech",
+  "approx": true,
+  "note": "Early PayPal offices upstairs in the 'lucky building'."
+ },
+ {
+  "name": "Facebook (first office)",
+  "address": "471 Emerson St",
+  "start": 2004,
+  "end": 2005,
+  "category": "tech",
+  "approx": true,
+  "note": "Facebook's first Palo Alto office."
+ },
+ {
+  "name": "Facebook",
+  "address": "156 University Ave",
+  "start": 2005,
+  "end": 2009,
+  "category": "tech",
+  "approx": true,
+  "note": "Facebook's downtown HQ before moving to the Stanford Research Park."
+ },
+ {
+  "name": "Peninsula Creamery",
+  "address": "566 Emerson St",
+  "start": 1923,
+  "end": null,
+  "category": "food",
+  "approx": false,
+  "note": "Diner and soda fountain since 1923."
+ },
+ {
+  "name": "Bell's Books",
+  "address": "536 Emerson St",
+  "start": 1935,
+  "end": null,
+  "category": "retail",
+  "approx": false,
+  "note": "New and used bookstore, family-run since 1935."
+ },
+ {
+  "name": "University Art",
+  "address": "267 Hamilton Ave",
+  "start": 1964,
+  "end": 2017,
+  "category": "retail",
+  "approx": true,
+  "note": "Art supply and framing store."
+ },
+ {
+  "name": "Palo Alto Sport Shop & Toy World",
+  "address": "526 Waverley St",
+  "start": 1930,
+  "end": 2015,
+  "category": "retail",
+  "approx": true,
+  "note": "Sporting goods and toys from 1930."
+ },
+ {
+  "name": "Gotham Shop",
+  "address": "520 Ramona St",
+  "start": 1925,
+  "end": 1940,
+  "category": "retail",
+  "approx": true,
+  "note": "First building of the Ramona Street architectural district (Pedro de Lemos, 1925)."
+ },
+ {
+  "name": "Cardinal Hotel",
+  "address": "235 Hamilton Ave",
+  "start": 1924,
+  "end": null,
+  "category": "hotel",
+  "approx": true,
+  "note": "Palo Alto's first non-frame hotel."
+ },
+ {
+  "name": "Hotel President",
+  "address": "488 University Ave",
+  "start": 1929,
+  "end": null,
+  "category": "hotel",
+  "approx": true,
+  "note": "1929 hotel, long used as apartments; reopened as a hotel (now Graduate by Hilton Palo Alto)."
+ },
+ {
+  "name": "Shady Lane",
+  "address": "441 University Ave",
+  "start": 1975,
+  "end": 2015,
+  "category": "retail",
+  "approx": true,
+  "note": "Craft store, gallery and gift shop; moved to Menlo Park in 2015."
+ },
+ {
+  "name": "St. Michael's Alley",
+  "address": "436 University Ave",
+  "start": 1959,
+  "end": 1977,
+  "category": "food",
+  "approx": true,
+  "note": "Early coffeehouse and folk venue; later moved."
+ },
+ {
+  "name": "Coupa Cafe",
+  "address": "538 Ramona St",
+  "start": 2004,
+  "end": null,
+  "category": "food",
+  "approx": true,
+  "note": "Venezuelan cafe, a startup meeting spot."
+ },
+ {
+  "name": "Il Fornaio",
+  "address": "520 Cowper St",
+  "start": 1987,
+  "end": null,
+  "category": "food",
+  "approx": true,
+  "note": "In the Garden Court Hotel."
+ },
+ {
+  "name": "Evvia Estiatorio",
+  "address": "420 Emerson St",
+  "start": 1995,
+  "end": null,
+  "category": "food",
+  "approx": true,
+  "note": "Greek restaurant."
+ },
+ {
+  "name": "Pizza A Go-Go",
+  "address": "220 University Ave",
+  "start": 1988,
+  "end": 2007,
+  "category": "food",
+  "approx": true,
+  "note": "Pizza by the slice, open late on weekends. Business records give 1988 as its start; it later moved to 335 University Ave."
+ },
+ {
+  "name": "Copeland's Sports",
+  "address": "375 University Ave",
+  "start": 1990,
+  "end": 2002,
+  "category": "retail",
+  "approx": true,
+  "note": "Sporting goods store at University & Waverley, remembered open in the early 1990s. The Cheesecake Factory replaced it after a 2003 renovation."
+ },
+ {
+  "name": "The Cheesecake Factory",
+  "address": "375 University Ave",
+  "start": 2003,
+  "end": 2018,
+  "category": "food",
+  "approx": false,
+  "note": "Opened in late 2003 in the former Copeland's building; closed May 26, 2018."
+ },
+ {
+  "name": "Roger's Deli",
+  "address": "Ramona St near University Ave",
+  "start": 1990,
+  "end": 1995,
+  "category": "food",
+  "approx": true,
+  "note": "Deli on Ramona, around the corner from Peninsula Beauty Supply, remembered open in the early 1990s. Exact address and years unknown; pin placement approximate."
+ },
+ {
+  "name": "Stars Palo Alto",
+  "address": "265 Lytton Ave",
+  "start": 1995,
+  "end": 1997,
+  "category": "food",
+  "approx": false,
+  "note": "Jeremiah Tower's Palo Alto branch of San Francisco's Stars, in the former Gatehouse restaurant building. Became Spago in late 1997."
+ },
+ {
+  "name": "Spago Palo Alto",
+  "address": "265 Lytton Ave",
+  "start": 1997,
+  "end": 2009,
+  "category": "food",
+  "approx": true,
+  "note": "Wolfgang Puck's Spago took over the Stars space, opening Dec 15, 1997, and lasted about a dozen years."
+ },
+ {
+  "name": "Osteria Toscana",
+  "address": "247 Hamilton Ave",
+  "start": 1986,
+  "end": null,
+  "category": "food",
+  "approx": false,
+  "note": "Tuscan restaurant on the ground floor of the Cardinal Hotel, at Hamilton & Ramona, since 1986."
+ },
+ {
+  "name": "Nobu Palo Alto",
+  "address": "180 Hamilton Ave",
+  "start": 2017,
+  "end": null,
+  "category": "food",
+  "approx": true,
+  "note": "Nobu Matsuhisa's restaurant in the Epiphany Hotel."
+ },
+ {
+  "name": "Reach Fitness",
+  "address": "707 High St",
+  "start": null,
+  "end": null,
+  "category": "fitness",
+  "approx": false,
+  "note": "Gym on High Street near Homer."
+ },
+ {
+  "name": "TAVERNA",
+  "address": "800 Emerson St",
+  "start": 2018,
+  "end": null,
+  "category": "food",
+  "approx": false,
+  "note": "Greek restaurant at Emerson & Homer, across from Whole Foods, open since April 2018."
+ },
+ {
+  "name": "Gordon Biersch Brewery Restaurant",
+  "address": "640 Emerson St",
+  "start": 1988,
+  "end": 2016,
+  "category": "food",
+  "approx": true,
+  "note": "Brewery-restaurant on Emerson; reinvented as Dan Gordon's in 2016."
+ },
+ {
+  "name": "Dan Gordon's",
+  "address": "640 Emerson St",
+  "start": 2016,
+  "end": 2022,
+  "category": "food",
+  "approx": true,
+  "note": "Dan Gordon's reboot of the Gordon Biersch space; Meyhouse is there now."
+ },
+ {
+  "name": "Aquarius Theatre",
+  "address": "430 Emerson St",
+  "start": 1969,
+  "end": null,
+  "category": "entertainment",
+  "approx": false,
+  "note": "Twin-screen arthouse cinema; opened Oct 1, 1969 with Medium Cool and The Rain People. Run by Landmark Theatres since 1985; renovated in 2015 with larger screens and recliners."
+ },
+ {
+  "name": "Palo Alto Post Office",
+  "address": "380 Hamilton Ave",
+  "start": 1932,
+  "end": null,
+  "category": "landmark",
+  "approx": true,
+  "note": "Birge Clark's Spanish Colonial post office."
+ },
+ {
+  "name": "Palo Alto Depot",
+  "address": "95 University Ave",
+  "start": 1941,
+  "end": null,
+  "category": "landmark",
+  "approx": true,
+  "note": "Streamline Moderne train station (Southern Pacific, now Caltrain)."
+ },
+ {
+  "name": "Sam's Chowder House",
+  "address": "185 University Ave",
+  "start": 2013,
+  "end": 2016,
+  "category": "food",
+  "approx": false,
+  "note": "Downtown branch of the Half Moon Bay seafood restaurant. It opened in November 2013 in the former Campo 185 space and closed in December 2016, when the space was sold to Wahlburgers.",
+  "source": "suggestion"
+ }
+]

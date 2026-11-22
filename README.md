@@ -4,7 +4,7 @@ A satellite map of a neighborhood with a timeline slider from 1900 to today: dra
 restaurants, theaters and offices stood on each block in any year. Neighbors suggest places they remember,
 an AI checks each suggestion against old newspapers and the web, and accepted ones appear on the map within minutes.
 
-**Live example:** Downtown Palo Alto, https://ofcourseduh.com/downtownpaloalto/ (and this repo's own build: https://unotdys.github.io/neighborhood-timeline-map/)
+**Live example:** Downtown Palo Alto, https://unotdys.com/downtownpaloalto/ (and this repo's own build: https://unotdys.github.io/neighborhood-timeline-map/)
 **Part of:** HUB_NAME_PLACEHOLDER, a directory of neighborhood maps (coming soon)
 
 Everything runs on free services: **GitHub Pages** (the map), **GitHub Actions** (builds, AI review, weekly refresh),

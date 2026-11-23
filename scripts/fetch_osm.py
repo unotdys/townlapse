@@ -11,7 +11,8 @@ q = f"""[out:json][timeout:60];
 (
   nwr["shop"]({bbox});
   nwr["amenity"~"^(restaurant|cafe|bar|pub|fast_food|ice_cream|cinema|theatre|nightclub|bank|pharmacy|food_court|biergarten)$"]({bbox});
-  nwr["tourism"~"^(hotel|motel|guest_house)$"]({bbox});
+  nwr["tourism"~"^(hotel|motel|guest_house|museum)$"]({bbox});
+  nwr["amenity"~"^(police|fire_station|post_office|library|townhall|courthouse|place_of_worship|community_centre|arts_centre)$"]({bbox});
   nwr["leisure"~"^(fitness_centre|sports_centre|dance|climbing)$"]({bbox});
   nwr["sport"~"yoga|pilates|fitness|boxing|climbing"]["name"]({bbox});
 );

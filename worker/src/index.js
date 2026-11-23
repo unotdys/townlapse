@@ -5,7 +5,7 @@
 // Configure in wrangler.toml (vars + send_email binding) and with `wrangler secret put GITHUB_TOKEN` / `MUSE_KEY`.
 import { EmailMessage } from "cloudflare:email";
 
-const CATS = ["retail", "food", "entertainment", "tech", "hotel", "landmark", "services", "fitness", "other"];
+const CATS = ["retail", "food", "entertainment", "tech", "hotel", "landmark", "services", "fitness", "civic", "worship", "community", "other"];
 const clip = (v, n) => String(v ?? "").replace(/\s+/g, " ").trim().slice(0, n);
 const yearOk = v => !v || /^(18|19|20)\d\d$/.test(String(v).trim());
 

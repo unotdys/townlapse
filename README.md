@@ -105,7 +105,7 @@ Muse only reads the suggestions marked `needs-info`, and its findings are posted
  "category": "entertainment", "approx": false, "note": "Movie palace; later a Borders bookstore."}
 ```
 
-- `category`: `retail`, `food`, `entertainment`, `tech`, `hotel`, `landmark`, `services`, `fitness`
+- `category`: `retail`, `food`, `entertainment`, `tech`, `hotel`, `landmark`, `services`, `fitness`, `civic` (fire, police, post office, library, city hall), `worship`, `community` (clubs, lodges, museums, halls)
 - `end: null` means still open; `start: null` means open today with the opening year unknown
 - `approx: true` shows the years with `~`
 - Add `"lat"` / `"lng"` if the address can't be looked up (otherwise it is geocoded with OpenStreetMap Nominatim and cached in `data/geocache.json`)

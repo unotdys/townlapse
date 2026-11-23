@@ -16,7 +16,7 @@ CUR = datetime.date.today().year
 cfg = json.load(open(D("config.json")))
 cache = json.load(open(D("data/geocache.json"))) if os.path.exists(D("data/geocache.json")) else {}
 UA = {"User-Agent": f"neighborhood-timeline-map/1.0 ({cfg.get('github', {}).get('repo', 'unknown')})"}
-CATS = {"retail", "food", "entertainment", "tech", "hotel", "landmark", "services", "fitness"}
+CATS = {"retail", "food", "entertainment", "tech", "hotel", "landmark", "services", "fitness", "civic", "worship", "community"}
 
 def geocode(addr):
     if addr in cache: return cache[addr]
@@ -76,6 +76,7 @@ for p in sug.get("additions", []):
 # ---- today's businesses from OpenStreetMap
 FOOD = {"restaurant","cafe","bar","pub","fast_food","ice_cream","bakery","pastry","chocolate","confectionery","tea","food_court","biergarten","coffee","deli","wine","alcohol"}
 ENT = {"cinema","theatre","nightclub"}; HOTEL = {"hotel","motel","guest_house"}
+CIV = {"police","fire_station","post_office","library","townhall","courthouse"}; WOR = {"place_of_worship"}; COM = {"community_centre","arts_centre","social_facility","museum"}
 FIT = {"fitness_centre","sports_centre","dance","climbing","yoga","pilates","fitness","boxing"}
 SERV = {"bank","hairdresser","beauty","hairdresser;beauty","dry_cleaning","optician","massage","copyshop","laundry","tailor","mobile_phone","pharmacy","chemist","glaziery","travel_agency"}
 ABBR = [(" Avenue", " Ave"), (" Street", " St"), (" Road", " Rd"), (" Boulevard", " Blvd"), (" Drive", " Dr")]
@@ -103,7 +104,7 @@ if os.path.exists(D("data/osm_current.json")):
         if any(n == norm(name) and abs(a - la) < 0.0004 and abs(b - ln) < 0.0004 for n, a, b in seen): continue
         seen.append((norm(name), la, ln))
         kind = t.get("amenity") or t.get("tourism") or t.get("leisure") or t.get("shop") or (t.get("sport", "").split(";")[0])
-        cat = "fitness" if kind in FIT else "food" if kind in FOOD else "entertainment" if kind in ENT else "hotel" if kind in HOTEL else "services" if kind in SERV else "retail"
+        cat = "civic" if kind in CIV else "worship" if kind in WOR else "community" if kind in COM else "fitness" if kind in FIT else "food" if kind in FOOD else "entertainment" if kind in ENT else "hotel" if kind in HOTEL else "services" if kind in SERV else "retail"
         out.append({"name": name, "address": addr or "address not listed", "start": CUR, "end": None, "category": cat,
                     "approx": False, "start_unknown": True, "source": "osm",
                     "note": f"Open today ({kind.replace('_', ' ').replace(';', ', ')}). Listed in OpenStreetMap; the year it opened isn't known yet.",

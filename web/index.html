@@ -12,7 +12,7 @@
 <style>
 :root{
   --ink:#F3EEE3; --dim:#B9B3A6; --panel:#1C2629; --panel2:#243135; --line:#3A4A4F; --bad:#F2A3A3;
-  --retail:#EBC55A; --food:#E58C8C; --entertainment:#9DB8E0; --tech:#8FD1A8; --hotel:#C9A6E0; --landmark:#E6E1D6; --services:#D9A273; --fitness:#7EC8E3;
+  --retail:#EBC55A; --food:#E58C8C; --entertainment:#9DB8E0; --tech:#8FD1A8; --hotel:#C9A6E0; --landmark:#E6E1D6; --services:#D9A273; --fitness:#7EC8E3; --civic:#B7C4CF; --worship:#E8D9A8; --community:#C79BD8;
   --display:"Big Shoulders Display",Impact,"Arial Narrow",sans-serif;
   --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   color-scheme:dark;
@@ -159,7 +159,7 @@ textarea.field{resize:vertical;min-height:80px}
       <label>Kind of place
         <select class="field" name="category">
           <option value="retail">Shop</option><option value="food">Food & drink</option><option value="entertainment">Theater or venue</option>
-          <option value="tech">Startup or office</option><option value="hotel">Hotel</option><option value="landmark">Landmark</option><option value="other">Other</option>
+          <option value="tech">Startup or office</option><option value="hotel">Hotel</option><option value="civic">Civic (fire, police, post office, library)</option><option value="worship">Place of worship</option><option value="community">Club, lodge or museum</option><option value="landmark">Landmark</option><option value="other">Other</option>
         </select></label>
     </div>
     <label>What do you remember? <span>optional</span><textarea class="field" name="note" maxlength="2000"></textarea></label>
@@ -199,7 +199,7 @@ const NOW = new Date().getFullYear();
 const START = SITE.startYear || 1900;
 const API = (SITE.api && SITE.api.url || "").replace(/\/$/,"");
 const SUGGEST_URL = API ? API + "/suggest" : "";
-const CATS = {retail:"Shops",food:"Food & drink",entertainment:"Theaters",tech:"Startups",hotel:"Hotels",landmark:"Landmarks",services:"Services",fitness:"Fitness"};
+const CATS = {retail:"Shops",food:"Food & drink",entertainment:"Theaters",tech:"Startups",hotel:"Hotels",landmark:"Landmarks",services:"Services",fitness:"Fitness",civic:"Civic",worship:"Worship",community:"Community"};
 const color = c => getComputedStyle(document.documentElement).getPropertyValue("--"+c).trim();
 const on = Object.fromEntries(Object.keys(CATS).map(k=>[k,true]));
 const $ = id => document.getElementById(id);

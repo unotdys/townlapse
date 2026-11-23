@@ -19,7 +19,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APPLIED = os.path.join(ROOT, "data", "suggestions_applied.json")
 cfg = json.load(open(os.path.join(ROOT, "config.json")))
 CUR = datetime.date.today().year
-CATS = {"retail", "food", "entertainment", "tech", "hotel", "landmark", "services", "fitness"}
+CATS = {"retail", "food", "entertainment", "tech", "hotel", "landmark", "services", "fitness", "civic", "worship", "community"}
 REPO = os.environ["GITHUB_REPOSITORY"]; TOKEN = os.environ["GITHUB_TOKEN"]
 event = json.load(open(os.environ["GITHUB_EVENT_PATH"]))
 issue = event["issue"]; NUM = issue["number"]
@@ -76,7 +76,7 @@ def clean_entry(e, partial=False):
     if e.get("category") is not None:
         c = str(e["category"]).lower()
         c = {"shop": "retail", "food & drink": "food", "theater": "entertainment", "theater or venue": "entertainment",
-             "startup or office": "tech", "other": "retail"}.get(c, c)
+             "startup or office": "tech", "place of worship": "worship", "club, lodge or museum": "community", "other": "retail"}.get(c, c)
         if c not in CATS: raise ValueError("bad category")
         out["category"] = c
     if "approx" in e: out["approx"] = bool(e["approx"])
@@ -140,7 +140,7 @@ treat it as recollection-level evidence (accept with approx=true only if several
 The note is shown publicly: 1-2 plain factual sentences, no long quotes, never name the submitter or private people.
 Reply with ONLY this JSON:
 {{"decision":"accept"|"reject"|"needs_info","reason":"1-2 sentences","sources":["https://..."],
- "action": null | {{"type":"add","entry":{{"name":"","address":"","start":1955,"end":null,"category":"retail|food|entertainment|tech|hotel|landmark|services|fitness","approx":false,"note":""}}}}
+ "action": null | {{"type":"add","entry":{{"name":"","address":"","start":1955,"end":null,"category":"retail|food|entertainment|tech|hotel|landmark|services|fitness|civic|worship|community","approx":false,"note":""}}}}
           | {{"type":"correct","target":"existing name on the map","target_address":null,"fields":{{"start":1950}}}} }}"""
 
 def http_json(url, data, headers):

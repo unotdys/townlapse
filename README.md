@@ -58,9 +58,12 @@ Townlapse address:
    ```json
    {"slug": "downtownpetaluma", "name": "Downtown Petaluma", "region": "California",
     "url": "https://petaluma.net/", "since": 1900, "repo": "https://github.com/you/your-repo",
+    "center": [38.2346, -122.6406], "radius_km": 1.0, "city": "Petaluma",
     "blurb": "One or two sentences about your map."}
    ```
    (Or [open an issue](https://github.com/unotdys/townlapse.org/issues/new?title=Add%20my%20town%3A%20) and we'll add it.)
+   `center` ([latitude, longitude] of your town's middle) lets the Townlapse apps for iOS and Android show your town
+   to people nearby.
 3. That's it: `townlapse.org/downtownpetaluma` now forwards to your site (keeping paths and years, e.g. `#1955`),
    and your town appears in the list on townlapse.org. Nothing to run or renew on either side.
 

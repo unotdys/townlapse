@@ -111,6 +111,7 @@ textarea.field{resize:vertical;min-height:80px}
   .row label:last-child{grid-column:1/-1}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.helpBtn{display:inline-block;text-decoration:none;font:600 13px var(--body);color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:9px 14px}
 </style>
 </head>
 <body>
@@ -336,6 +337,10 @@ function openForm({kind="addition", name=""}={}){
 $("suggestBtn").onclick=()=>openForm();
 const ghNew = q => `https://github.com/${SITE.github.repo}/issues/new?template=suggestion.yml&title=${encodeURIComponent(q||"")}`;
 if(!API || !SITE.api.contact){ $("contactBtn").hidden=true; }
+// towns hosted on (or registered with) Townlapse get a "Help research" button: assignments anyone can do
+if(SITE.hub && SITE.hub.slug){ const a=document.createElement("a"); a.className="ghost helpBtn"; a.textContent="Help research";
+  a.href=`https://townlapse.org/contribute/?town=${encodeURIComponent(SITE.hub.slug)}`;
+  const box=document.querySelector(".foot .btns")||document.querySelector(".foot"); if(box) box.appendChild(a); }
 if(SITE.hub && SITE.hub.url){ const at = SITE.hub.slug ? `townlapse.org/${esc(SITE.hub.slug)}` : "";
   $("hubline").innerHTML = `Part of <a href="${SITE.hub.url}">${esc(SITE.hub.name)}</a>${at ? ` · <a href="https://${at}/">${at}</a>` : ""}. Make one for your neighborhood.`; }
 if(SITE.credit) $("hubline").innerHTML += (($("hubline").innerHTML?" ":"")+esc(SITE.credit));
@@ -351,7 +356,7 @@ form.onsubmit=async e=>{
   if(d.kind==="correction" && !d.note.trim() && !d.start && !d.end && !d.address) return bad("Tell us what should change.");
   $("send").disabled=true; $("send").textContent="Sending…"; msg.textContent=""; msg.className="";
   try{
-    const r=await fetch(SUGGEST_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(d)});
+    const r=await fetch(SUGGEST_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({...d, town: (SITE.hub&&SITE.hub.slug)||""})});
     const j=await r.json().catch(()=>({}));
     if(!r.ok) throw new Error(j.error||"The suggestion didn't go through. Try again in a minute.");
     msg.textContent="Sent. Thank you! It'll show up once it's checked."; $("send").textContent="Sent";

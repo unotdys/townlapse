@@ -46,6 +46,34 @@ a contact form, and a connector for Meta's Muse agent). The only possible cost i
 
 Without the Worker, the **Suggest a place** button opens a GitHub issue form (visitors need a GitHub account) and **Contact us** is hidden.
 
+## Join Townlapse (townlapse.org/yourtown)
+
+Host your map anywhere (GitHub Pages, your own domain such as `petaluma.net`, any static host) and still give it a
+Townlapse address:
+
+1. Pick a short name, e.g. `downtownpetaluma`, and put it in `config.json` → `hub.slug`. Your map's footer then shows
+   "Part of Townlapse · townlapse.org/downtownpetaluma".
+2. Add your town to the registry with a pull request to
+   [unotdys/townlapse.org → towns.json](https://github.com/unotdys/townlapse.org/blob/main/towns.json):
+   ```json
+   {"slug": "downtownpetaluma", "name": "Downtown Petaluma", "region": "California",
+    "url": "https://petaluma.net/", "since": 1900, "repo": "https://github.com/you/your-repo",
+    "blurb": "One or two sentences about your map."}
+   ```
+   (Or [open an issue](https://github.com/unotdys/townlapse.org/issues/new?title=Add%20my%20town%3A%20) and we'll add it.)
+3. That's it: `townlapse.org/downtownpetaluma` now forwards to your site (keeping paths and years, e.g. `#1955`),
+   and your town appears in the list on townlapse.org. Nothing to run or renew on either side.
+
+To use your own domain on GitHub Pages: Settings → Pages → Custom domain, then point your DNS at GitHub
+(four A records for the bare domain, and a CNAME for `www` to `<your-name>.github.io`).
+
+## Photos, ads and sources on pins
+
+Every place can carry links (`"links": ["https://..."]` in `data/history.json`). They're sorted into Photo,
+Ad / newspaper, History, Article and Listing and shown in the place's popup, opening on their original sites.
+Accepted suggestions keep the sources the reviewer verified, so old photos and newspaper ads that contributors
+find end up on the map automatically.
+
 ## Optional: the Cloudflare Worker (free)
 
 Lets anyone suggest without a GitHub account, adds **Contact us** (emails you; your address is never shown), and serves the Muse connector.

@@ -122,8 +122,10 @@
     "repo": "unotdys/townlapse"
   },
   "hub": {
+    "_note": "Join Townlapse: pick a short name (slug) and add your town to github.com/unotdys/townlapse.org/blob/main/towns.json; your map is then reachable at townlapse.org/<slug>, wherever you host it.",
     "name": "Townlapse",
-    "url": "https://townlapse.org/"
+    "url": "https://townlapse.org/",
+    "slug": ""
   },
   "credit": ""
 }

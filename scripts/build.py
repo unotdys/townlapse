@@ -39,6 +39,21 @@ def inside(lat, lng, poly):
 
 def norm(t): return re.sub(r"[^a-z0-9]", "", t.lower())
 
+# links shown on each pin: photos and ads first, then history pages, articles, listings; junk filtered out
+LINK_SKIP = re.compile(r"giftly\.|sec\.gov|secdatabase|patentimages|trademark|cbinsights|linkedin\.|bizapedia|opencorporates|dnb\.com|zoominfo|facebook\.com", re.I)
+def link_kind(u):
+    if re.search(r"flickr\.|calisphere|instagram\.|pcad\.lib|/photos?/|\.(jpe?g|png|gif|tiff?)(\?|$)", u, re.I): return "Photo"
+    if re.search(r"newspapers\.com|newspaperarchive|cdnc\.|chroniclingamerica|archive\.org/(download|details)|morgue|\.pdf(\?|$)", u, re.I): return "Ad / newspaper"
+    if re.search(r"histor|heritage|localwiki|\.gov/|museum|librar", u, re.I): return "History"
+    if re.search(r"yelp\.|foursquare|tripadvisor|mapquest|yellowpages", u, re.I): return "Listing"
+    return "Article"
+def clean_links(urls):
+    order = {"Photo": 0, "Ad / newspaper": 1, "History": 2, "Article": 3, "Listing": 4}; out, seen = [], set()
+    for u in urls or []:
+        u = str(u).strip().rstrip(".,);")
+        if u.startswith("http") and not LINK_SKIP.search(u) and u not in seen: seen.add(u); out.append({"url": u, "kind": link_kind(u)})
+    return sorted(out, key=lambda l: order[l["kind"]])[:8]
+
 def place(p, source):
     if p.get("category") not in CATS: p["category"] = "retail"
     if "lat" in p and "lng" in p: ll = [p["lat"], p["lng"]]
@@ -47,6 +62,7 @@ def place(p, source):
     rec = {"name": p["name"], "address": p["address"], "start": p.get("start") or CUR, "end": p.get("end"),
            "category": p["category"], "approx": bool(p.get("approx")), "note": p.get("note", ""),
            "lat": ll[0], "lng": ll[1], "source": p.get("source", source)}
+    if p.get("links"): rec["links"] = clean_links(p["links"])
     if not p.get("start"): rec["start_unknown"] = True
     return rec
 
@@ -101,6 +117,7 @@ for c in sug.get("corrections", []):
         f = c.get("fields", {})
         for k in ("name", "start", "end", "category", "note", "approx"):
             if k in f: x[k] = f[k]
+        if f.get("links"): x["links"] = clean_links([l["url"] if isinstance(l, dict) else l for l in x.get("links", [])] + f["links"])
         if f.get("start"): x.pop("start_unknown", None)
         if f.get("address") and f["address"] != x["address"]:
             ll = geocode(f["address"])

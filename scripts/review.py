@@ -87,15 +87,19 @@ def clean_entry(e, partial=False):
     if out.get("start") and out.get("end") and out["end"] < out["start"]: raise ValueError("end before start")
     return out
 
+LINKS = []   # sources of the current verdict + submission, set before apply()
+
 def apply(action):
     data = json.load(open(APPLIED)) if os.path.exists(APPLIED) else {"additions": [], "corrections": []}
     if action.get("type") == "add":
         e = clean_entry(action["entry"]); e["issue"] = NUM
+        if LINKS: e["links"] = LINKS
         if any(x["name"].lower() == e["name"].lower() and x["address"] == e["address"] for x in data["additions"]): raise ValueError("already on the map")
         data["additions"].append(e); what = f"added **{e['name']}** ({e['address']}, {e.get('start') or '?'}–{e.get('end') or 'today'})"
     elif action.get("type") == "correct":
         fields = clean_entry(action.get("fields", {}), partial=True)
         if not fields: raise ValueError("correction has no fields")
+        if LINKS: fields["links"] = LINKS
         data["corrections"].append({"target": action["target"], "target_address": action.get("target_address"), "fields": fields, "issue": NUM})
         what = f"corrected **{action['target']}**: " + ", ".join(f"{k} → {v}" for k, v in fields.items() if k != "note")
     else: raise ValueError("no valid action")
@@ -179,8 +183,10 @@ d = v.get("decision"); reason = str(v.get("reason", ""))[:900]
 src = "\n".join(f"- {u}" for u in (v.get("sources") or [])[:8] if str(u).startswith("http") and "facebook.com" not in u)
 try:
     if d == "accept":
+        LINKS[:] = sorted({str(u) for u in (v.get("sources") or []) + re.findall(r"https?://[^\s,;)]+", sug.get("source") or "") if str(u).startswith("http")})[:10]
         what = apply(v.get("action") or {})
-        comment(f"✅ Verified and {what}.\n\n{reason}\n\n{('Sources:\n' + src) if src else ''}\n\nIt will appear on the map in a minute or two. Thank you!")
+        src_block = ("Sources:\n" + src) if src else ""
+        comment(f"✅ Verified and {what}.\n\n{reason}\n\n{src_block}\n\nIt will appear on the map in a minute or two. Thank you!")
         labels(add=["accepted"], remove=["needs-info", "needs-review"]); close(); output("changed", "true")
     elif d == "reject":
         comment(f"Thanks for the suggestion. We couldn't add it: {reason}"); labels(add=["declined"], remove=["needs-info"]); close(); output("changed", "false")

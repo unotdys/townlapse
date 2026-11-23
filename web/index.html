@@ -69,6 +69,10 @@ aside{background:var(--panel);border-left:1px solid var(--line);display:flex;fle
 .pop .yrs{font:800 20px var(--display);letter-spacing:.02em}
 .pop .addr{color:var(--dim);font-size:13px;margin-bottom:6px}
 .pop .est{font-size:12px;color:var(--dim)}
+.pop .links{margin-top:8px;border-top:1px solid var(--line);padding-top:6px}
+.pop .links b{display:block;font:600 12px var(--body);color:var(--dim);margin-bottom:3px}
+.pop .links a{display:block;color:var(--ink);font-size:13px;line-height:1.5;text-decoration:underline;text-underline-offset:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pop .links a span{color:var(--retail);text-decoration:none;font-weight:600;margin-right:4px}
 .pop .fix{margin-top:8px;padding:0;background:none;color:var(--retail);font:600 13px var(--body);text-decoration:underline;text-underline-offset:2px}
 .leaflet-container a.leaflet-popup-close-button{color:var(--dim)}
 .leaflet-tooltip.lbl{background:rgba(28,38,41,.88);color:var(--ink);border:0;box-shadow:none;font:600 12px var(--body);padding:2px 6px}
@@ -243,8 +247,15 @@ function hist(){
   counts.forEach((n,i)=>{ g.fillStyle = i===cur ? color("retail") : "rgba(243,238,227,.22)";
     const bh=Math.min(h, Math.max(n?2:0, n/max*(h-2))); g.fillRect(i*bw, h-bh, Math.max(1,bw-1), bh); });
 }
+function linksHtml(s){
+  if(!s.links||!s.links.length) return "";
+  const host=u=>{try{return new URL(u).hostname.replace(/^www\./,"")}catch{return u}};
+  const visual=s.links.some(l=>l.kind==="Photo"||l.kind==="Ad / newspaper");
+  return `<div class="links"><b>${visual?"Photos, ads &amp; sources":"Sources"}</b>`+
+    s.links.map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer"><span>${esc(l.kind)}</span>${esc(host(l.url))}</a>`).join("")+`</div>`;
+}
 function popup(s){
-  return `<div class="pop"><h3>${esc(s.name)}</h3><div class="yrs">${yrs(s)}</div><div class="addr">${esc(s.address)}</div>${esc(s.note)}${s.approx?'<div class="est">~ Dates are estimates.</div>':""}${s.start_unknown?'<div class="est">Know when it opened? Use Suggest a fix.</div>':""}<br><button class="fix" data-name="${esc(s.name)}">Suggest a fix</button></div>`;
+  return `<div class="pop"><h3>${esc(s.name)}</h3><div class="yrs">${yrs(s)}</div><div class="addr">${esc(s.address)}</div>${esc(s.note)}${linksHtml(s)}${s.approx?'<div class="est">~ Dates are estimates.</div>':""}${s.start_unknown?'<div class="est">Know when it opened? Use Suggest a fix.</div>':""}<br><button class="fix" data-name="${esc(s.name)}">Suggest a fix</button></div>`;
 }
 function focusStore(s){
   if(!isOpen(s,+slider.value)){ slider.value=s.start; render(); }
@@ -325,7 +336,8 @@ function openForm({kind="addition", name=""}={}){
 $("suggestBtn").onclick=()=>openForm();
 const ghNew = q => `https://github.com/${SITE.github.repo}/issues/new?template=suggestion.yml&title=${encodeURIComponent(q||"")}`;
 if(!API || !SITE.api.contact){ $("contactBtn").hidden=true; }
-if(SITE.hub && SITE.hub.url && !/example\.org/.test(SITE.hub.url)) $("hubline").innerHTML=`Part of <a href="${SITE.hub.url}">${esc(SITE.hub.name)}</a>. Make one for your neighborhood.`;
+if(SITE.hub && SITE.hub.url){ const at = SITE.hub.slug ? `townlapse.org/${esc(SITE.hub.slug)}` : "";
+  $("hubline").innerHTML = `Part of <a href="${SITE.hub.url}">${esc(SITE.hub.name)}</a>${at ? ` · <a href="https://${at}/">${at}</a>` : ""}. Make one for your neighborhood.`; }
 if(SITE.credit) $("hubline").innerHTML += (($("hubline").innerHTML?" ":"")+esc(SITE.credit));
 $("cancel").onclick=()=>dlg.close();
 document.addEventListener("click",e=>{ const b=e.target.closest(".fix"); if(b){ map.closePopup(); openForm({kind:"correction",name:b.dataset.name}); } });

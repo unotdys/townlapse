@@ -347,7 +347,7 @@ if(SITE.hub && SITE.hub.url){ const at = SITE.hub.slug ? `townlapse.org/${esc(SI
 if(SITE.credit) $("hubline").innerHTML += (($("hubline").innerHTML?" ":"")+esc(SITE.credit));
 // creator + contributors (opt-in credits), for towns on Townlapse
 if(SITE.hub && SITE.hub.slug){
-  fetch(`https://agenticallymine.com/api/tl/credits?town=${encodeURIComponent(SITE.hub.slug)}`).then(r=>r.ok?r.json():null).then(c=>{
+  fetch(`https://api.townlapse.org/api/tl/credits?town=${encodeURIComponent(SITE.hub.slug)}`).then(r=>r.ok?r.json():null).then(c=>{
     if(!c) return; const bits=[];
     if(c.creator) bits.push(`Created by <b>${esc(c.creator.name)}</b>`);
     const n=(c.contributors||[]).length; if(n) bits.push(`${n} contributor${n>1?"s":""}`);

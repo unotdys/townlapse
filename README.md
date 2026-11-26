@@ -25,6 +25,33 @@ a contact form, and a connector for Meta's Muse agent). The only possible cost i
  weekly GitHub Action: scripts/fetch_osm.py → today's businesses from OpenStreetMap
 ```
 
+## Host your own with noBGP
+
+Run Townlapse on any machine you have (a server, a cloud VM, a Raspberry Pi, an old laptop) and let your AI set it up
+through [noBGP](https://nobgp.com), with no open ports and no networking to configure.
+
+1. **Sign up** for a free noBGP account at https://nobgp.com.
+2. **Add the noBGP connector to your AI** (Claude, ChatGPT, Gemini or another assistant with custom connectors):
+   connector URL `https://mcp.nobgp.com/mcp`, then sign in with your noBGP account.
+3. **Install noBGP on the machine** that will host your Townlapse: in noBGP, add a node and run the install command it
+   shows on that machine (or ask your AI: "Using noBGP, give me the command to add a new node to my network").
+4. **Paste this into your AI**, filling in the two blanks:
+
+```
+Using the noBGP connector, set up a Townlapse server on my node "<node name>" for <your town, e.g. Downtown Petaluma, California>:
+1. Install git and Python 3 if they're missing, then clone https://github.com/unotdys/townlapse into ~/townlapse.
+2. Follow the README's "Make it yours" section: edit config.json for my town (title, startYear, geocodeSuffix,
+   area.polygon around the downtown, map.bearing/bottom/top), set data/osm_current.json to {"elements": []} and
+   data/geocache.json to {}, and replace data/history.json with an empty list for now.
+3. Run python3 scripts/fetch_osm.py (today's places from OpenStreetMap), then python3 scripts/build.py; the site is built into ~/townlapse/site.
+4. Serve ~/townlapse/site on port 8080 as a service that restarts after a reboot.
+5. Publish it with noBGP as a web service and give me the link. Ask me before making it public.
+6. Finally, tell me how to add my town to townlapse.org (the README's "Join Townlapse" section).
+```
+
+Your map is then live at the noBGP link. Point your own domain at it later if you like, and
+[join townlapse.org](#join-townlapse-townlapseorgyourtown) so it appears in the list of towns.
+
 ## Make it yours (about 15 minutes)
 
 1. **Copy this repo**: click **Use this template** (or fork it). Make the copy public (GitHub Pages is free for public repos).
